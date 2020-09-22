@@ -44,4 +44,5 @@ struct ShowMeshesMode : Mode {
 	Scene scene;
 	Scene::Camera *scene_camera = nullptr;
 	Scene::Drawable *scene_drawable = nullptr;
+	Scene::Light *scene_light = nullptr;
 };

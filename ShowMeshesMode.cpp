@@ -6,29 +6,32 @@
 #include <iostream>
 
 ShowMeshesMode::ShowMeshesMode(MeshBuffer const &buffer_) : buffer(buffer_) {
-	vao = buffer.make_vao_for_program(show_meshes_program->program);
+  vao = buffer.make_vao_for_program(show_meshes_program->program);
 
-	//Set up scene:
-	{ //create a single camera:
-		scene.transforms.emplace_back();
-		scene.cameras.emplace_back(&scene.transforms.back());
-		scene_camera = &scene.cameras.back();
-		scene_camera->fovy = 60.0f / 180.0f * 3.1415926f;
-		scene_camera->near = 0.01f;
-		//scene_camera->transform and scene_camera->aspect will be set in draw()
-	}
-	{ //create a drawable to hold the current mesh:
-		scene.transforms.emplace_back();
-		scene.drawables.emplace_back(&scene.transforms.back());
-		scene_drawable = &scene.drawables.back();
+  //Set up scene:
+  { //create a single camera:
+    scene.transforms.emplace_back();
+    scene.cameras.emplace_back(&scene.transforms.back());
+    scene_camera = &scene.cameras.back();
+    scene_camera->fovy = 60.0f / 180.0f * 3.1415926f;
+    scene_camera->near = 0.01f;
+    //scene_camera->transform and scene_camera->aspect will be set in draw()
+  }
+  { //create a drawable to hold the current mesh:
+    scene.transforms.emplace_back();
+    scene.drawables.emplace_back(&scene.transforms.back());
+    scene_drawable = &scene.drawables.back();
 
-		scene_drawable->pipeline = show_meshes_program_pipeline;
-		scene_drawable->pipeline.vao = vao;
-		//these will be updated by the mesh selection code:
-		scene_drawable->pipeline.type = GL_TRIANGLES;
-		scene_drawable->pipeline.start = 0;
-		scene_drawable->pipeline.count = 0;
-	}
+    scene_drawable->pipeline = show_meshes_program_pipeline;
+    scene_drawable->pipeline.vao = vao;
+    //these will be updated by the mesh selection code:
+    scene_drawable->pipeline.type = GL_TRIANGLES;
+    scene_drawable->pipeline.start = 0;
+    scene_drawable->pipeline.count = 0;
+  }
+  { // create a light:
+    scene_light = &scene.lights.back();
+  }
 
 	//select first mesh in buffer:
 	select_prev_mesh();
