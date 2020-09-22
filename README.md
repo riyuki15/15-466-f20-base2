@@ -1,8 +1,8 @@
-# (TODO: your game's title)
+# merry merry
 
-Author: (TODO: your name)
+Author: Michelle Chang
 
-Design: (TODO: In two sentences or fewer, describe what is new and interesting about your game.)
+Design: The snowmen deserve a merry christmas gift! Send 7 gifts out to 7 snowmen by gliding across the ice rink.
 
 Screen Shot:
 
@@ -10,9 +10,13 @@ Screen Shot:
 
 How To Play:
 
-(TODO: describe the controls and (if needed) goals/strategy.)
+- Use arrow keys to move the tree
+- Smash the space bar when you wish to throw out one of your gifts at a snowman
+- An ending message will be printed after you have sent out all of the gifts
 
-Sources: (TODO: list a source URL for any assets you did not create yourself. Make sure you have a license for the asset.)
+Sources: 
+
+All 3D assets were downloaded from [Kenney.nl](https://kenney.nl/assets/holiday-kit).
 
 This game was built with [NEST](NEST.md).
 
